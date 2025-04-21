@@ -2,11 +2,7 @@ import React, { useRef } from 'react'
 import {
   SafeAreaView,
   StatusBar,
-  StyleSheet,
-  View,
-  Text,Image,
-  Animated,
-  Platform,
+  StyleSheet,View,Text,Image,Animated,Platform,
 } from 'react-native'
 import Post from './components/Post'
 import { Ionicons } from '@expo/vector-icons'
@@ -19,7 +15,7 @@ const posts = [
       username: "ReactDev",
       avatarUrl: "https://picsum.photos/seed/user001/300/300"
     },
-    timestamp: "2023-04-21T17:30:00Z",
+    timestamp: "2025-04-21T17:30:00Z",
     content: "Just built this cool interactive post component with React Native! #ReactNative #SocialMediaDev",
     imageUrl: "https://picsum.photos/seed/post001/500/400",
     stats: {
@@ -35,7 +31,7 @@ const posts = [
       username: "HooksGuru",
       avatarUrl: "https://picsum.photos/seed/user002/300/300"
     },
-    timestamp: "2023-04-21T18:45:00Z",
+    timestamp: "2025-04-20T18:45:00Z",
     content: "Exploring the new React Hooks API today. Mind-blowing stuff! #ReactJS #Hooks",
     imageUrl: "https://picsum.photos/seed/post002/500/400",
     stats: {
@@ -51,7 +47,7 @@ const posts = [
       username: "CSSNinja",
       avatarUrl: "https://picsum.photos/seed/user003/300/300"
     },
-    timestamp: "2023-04-21T20:10:00Z",
+    timestamp: "2025-04-18T20:10:00Z",
     content: "Styled a modal with Tailwind CSS in React Native. Looks sleek! #TailwindCSS #UX",
     imageUrl: "https://picsum.photos/seed/post003/500/400",
     stats: {
@@ -115,7 +111,7 @@ const posts = [
       username: "TypeScriptFan",
       avatarUrl: "https://picsum.photos/seed/user007/300/300"
     },
-    timestamp: "2023-04-22T05:50:00Z",
+    timestamp: "2025-04-19T05:50:00Z",
     content: "Migrated my project to TypeScript for better type safety. #TypeScript #JavaScript",
     imageUrl: "https://picsum.photos/seed/post007/500/400",
     stats: {
@@ -333,31 +329,22 @@ const posts = [
     }
   }
 ];
-
-
 const HEADER_MAX_HEIGHT = 60
-
 export default function App() {
-
-  
   const scrollY = useRef(new Animated.Value(0)).current
-
   const scrollYClamped = Animated.diffClamp(scrollY, 0, HEADER_MAX_HEIGHT)
-
   const headerTranslateY = scrollYClamped.interpolate({
     inputRange: [0, HEADER_MAX_HEIGHT],
     outputRange: [0, -HEADER_MAX_HEIGHT],
   })
-
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={'#fff'} />
       <Animated.View
         style={[
           styles.header,
-          {paddingTop: 29, height: HEADER_MAX_HEIGHT + 29,transform: [{ translateY: headerTranslateY }],
-          },
-        ]}
+          { height: HEADER_MAX_HEIGHT ,transform: [{ translateY: headerTranslateY }],
+          },]}
       >
         <Text style={styles.headerTitle}>My Feed</Text>
         <View style={styles.headerRight}>
